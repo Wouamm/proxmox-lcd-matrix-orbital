@@ -38,7 +38,7 @@ This project features a fully automated, interactive installation wizard that co
 ├── ⚙️ 2. CPU (Name / Load / Temp)
 ├── 🧠 3. RAM (Used / Free / Swap)
 ├── 🖥️ 4. VM & LXC (VM / LXC run)
-├── 🧮 5. STORAGE (ZFS / Network / Local name and usage %)
+├── 🧮 5. STORAGE (ZFS / Network / Local / name and usage %)
 ├── 🏥 6. SMART HEALTH (SMART status and temp for sda, nvme0, etc.)
 └── 🖥️ 7. CLUSTER (Only if ENABLE_CLUSTER_MENU = True)
     ├── Replication
@@ -123,7 +123,7 @@ Ce projet intègre un assistant d'installation automatisé et interactif permett
 | Touches | Action |
 | :--- | :--- |
 | **Gauche / Droite** | Ecran suivant |
-| **Haut / Bas** | Réglage rétroéclairage |
+| **Haut / Bas** | Réglage du rétroéclairage |
 | **Enter** | Entrer dans le menu |
 | **F1** | Menu principal |
 | **F2** | Retour sur l'horloge |
@@ -147,13 +147,13 @@ Ce projet intègre un assistant d'installation automatisé et interactif permett
 ├── 📶 1. RESEAU (Hote / IP / Débit) 
 ├── ⚙️ 2. CPU (Nom / Charge / Température)
 ├── 🧠 3. RAM (Utilisé / Libre / Swap)
-├── 🖥️ 4. VM & LXC (VM / LXC en fonctionnement)
-├── 🧮 5. VOLUMETRIE (ZFS / Réseau / Local nom et usage en %)
-├── 🏥 6. SANTE SMART (Status SMART et température pour sda, nvme0, etc.)
+├── 🖥️ 4. VM & LXC (Nombre de VM/LXC actifs)
+├── 🧮 5. VOLUMETRIE (ZFS / Réseau / Local / nom et usage en %)
+├── 🏥 6. SANTE SMART (Statut SMART et température pour sda, nvme0, etc.)
 └── 🖥️ 7. CLUSTER (Uniquement si ENABLE_CLUSTER_MENU = True)
     ├── Réplication
-    ├── Nœud 02 (Status en ligne)
-    └── Nœud 03 (Status en ligne)
+    ├── Nœud 02 (Statut en ligne)
+    └── Nœud 03 (Statut en ligne)
 ```
 
 ---
