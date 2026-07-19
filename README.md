@@ -22,7 +22,9 @@ To deploy the script on a Proxmox node, execute the following command in your te
 
 > ⚠️ **Important:** Do NOT pipe directly to bash (`curl | bash`), as the installer requires a TTY terminal allocation to process your interactive inputs (language preference, hardware ports, cluster IPs).
 
+```bash
 bash <(curl -sSL https://raw.githubusercontent.com/Wouamm/proxmox-lcd-matrix-orbital/main/install.sh)
+```
 
 ### 🎯 What the Installer Does:
 1. Installs essential system prerequisites (`python3-serial`, `python3-psutil`, `smartmontools`, `lm-sensors`).
@@ -36,11 +38,14 @@ bash <(curl -sSL https://raw.githubusercontent.com/Wouamm/proxmox-lcd-matrix-orb
 
 If you ever need to manually tweak variables (such as updating cluster node target IPs, modifying backlight timeouts, or adding disk prefix filters) after the deployment, simply edit the main module:
 
+```bash
 nano /root/scripts/proxmox-lcd-matrix-orbital.py
+```
 
 Then restart the service to apply the updates:
-
+```bash
 systemctl restart proxmox-lcd.service
+```
 
 ---
 
@@ -48,16 +53,16 @@ systemctl restart proxmox-lcd.service
 
 Should you need to remove the tracking deployment entirely from your host hypervisor without wiping your entire `scripts` directory:
 
+```bash
 # Stop and remove the daemon
-
 systemctl stop proxmox-lcd.service
 systemctl disable proxmox-lcd.service
 rm /etc/systemd/system/proxmox-lcd.service
 systemctl daemon-reload
 
 # Remove only the project files, keeping your other scripts safe
-
 rm -f /root/scripts/proxmox-lcd-matrix-orbital.py
+```
 
 ---
 
@@ -95,7 +100,9 @@ Pour déployer le script sur un nœud Proxmox, exécutez la commande suivante da
 
 > ⚠️ **Important :** Ne redirigez pas le flux directement vers bash (`curl | bash`), car l'installateur requiert l'attribution d'un terminal (TTY) pour capturer vos choix interactifs (langue, ports matériels, IPs du cluster).
 
+```bash
 bash <(curl -sSL https://raw.githubusercontent.com/Wouamm/proxmox-lcd-matrix-orbital/main/install.sh)
+```
 
 ### 🎯 Ce que fait l'installateur :
 1. Installe les prérequis système indispensables (`python3-serial`, `python3-psutil`, `smartmontools`, `lm-sensors`).
@@ -109,11 +116,14 @@ bash <(curl -sSL https://raw.githubusercontent.com/Wouamm/proxmox-lcd-matrix-orb
 
 Si vous devez modifier manuellement des variables après le déploiement (comme mettre à jour les IPs du cluster, ajuster la mise en veille du rétroéclairage ou filtrer des préfixes de disques), éditez simplement le script :
 
+```bash
 nano /root/scripts/proxmox-lcd-matrix-orbital.py
+```
 
 Puis redémarrez le service pour appliquer les modifications :
-
+```bash
 systemctl restart proxmox-lcd.service
+```
 
 ---
 
@@ -121,16 +131,16 @@ systemctl restart proxmox-lcd.service
 
 Si vous souhaitez retirer complètement le projet de votre hyperviseur sans pour autant effacer tout votre dossier `scripts` :
 
+```bash
 # Arrêter et supprimer le service
-
 systemctl stop proxmox-lcd.service
 systemctl disable proxmox-lcd.service
 rm /etc/systemd/system/proxmox-lcd.service
 systemctl daemon-reload
 
 # Supprimer uniquement le fichier du projet, sans toucher à vos autres scripts
-
 rm -f /root/scripts/proxmox-lcd-matrix-orbital.py
+```
 
 ---
 
