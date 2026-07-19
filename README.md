@@ -6,6 +6,18 @@ This project features a fully automated, interactive installation wizard that co
 
 ---
 
+## 🕹️ Screen Button Controls / Fonctions des touches
+
+![Button Layout](Front panel.webp)
+
+| Button / Touche | Action (EN) | Action (FR) |
+| :--- | :--- | :--- |
+| **Key 1 / Up** | Next menu screen | Écran de menu suivant |
+| **Key 2 / Enter** | Toggle backlight sleep | Activer/Désactiver la veille |
+| **Key 3 / Down** | Manual metric refresh | Forcer le rafraîchissement |
+
+---
+
 ## ✨ Features
 
 * 📊 **Real-time Metrics:** Displays CPU usage, RAM utilization, system temperatures, and storage health (SMART).
