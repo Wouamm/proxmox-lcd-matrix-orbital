@@ -6,13 +6,13 @@ This project features a fully automated, interactive installation wizard that co
 
 ---
 
-## 🕹️ Screen Button Controls / Fonctions des touches
+## 🕹️ Screen Button Controls
 
 ![Button Layout](Images/front_panel.webp)
 
 | Button | Action |
 | :--- | :--- |
-| **Left / Right** | Next menu screen |
+| **Left / Right** | Next screen |
 | **Up / Down** | Setting backlight |
 | **Enter** | Enter in the menu |
 | **F1** | Main menu |
@@ -95,6 +95,20 @@ For the sake of complete openness:
 Un script de surveillance système interactif pour **Proxmox VE**, conçu pour envoyer l'état du matériel en temps réel sur un **écran LCD physique Matrix Orbital MX2 USB**.
 
 Ce projet intègre un assistant d'installation automatisé et interactif permettant de configurer le matériel, les dépendances système, la langue d'affichage et l'éventuelle surveillance d'un cluster de nœuds.
+
+---
+
+## 🕹️ Fonctions des touches
+
+![Button Layout](Images/front_panel.webp)
+
+| Touches | Action |
+| :--- | :--- |
+| **Gauche / Droite** | Ecran suivant |
+| **Haut / Bas** | Réglage rétroéclairage |
+| **Enter** | Entrer dans le menu |
+| **F1** | Menu principal |
+| **F2** | Retour sur l'horloge |
 
 ---
 
