@@ -33,14 +33,18 @@ This project features a fully automated, interactive installation wizard that co
 ## 🗺️ Menu Structure
 
 ```text
-[Key 1: Next] 🔄
-├── 💾 01. Node Status (CPU % / RAM % / Uptime)
-├── 🌡️ 02. Temperatures (CPU / Motherboard / NVMe)
-├── 🧮 03. Storage Pools (ZFS / LVM / Local usage %)
-├── 🏥 04. Drive Health (SMART status for sda, nvme0, etc.)
-└── 🖥️ 05. Cluster Node Status (Only if ENABLE_CLUSTER_MENU = True)
-    ├── Sibling Node 02 (Online Status / Load)
-    └── Sibling Node 03 (Online Status / Load)
+[Button : Left / Right] 🔄
+├── 📶 1. NETWORK (Host / IP / Flow rate) 
+├── ⚙️ 2. CPU (Name / Load / Temp)
+├── 🧠 3. RAM (Used / Free / Swap)
+├── 🖥️ 4. VM & LXC (VM / LXC run)
+├── 🧮 5. STORAGE (ZFS / Network / Local name and usage %)
+├── 🏥 6. SMART HEALTH (SMART status and temp for sda, nvme0, etc.)
+└── 🖥️ 7. CLUSTER (Only if ENABLE_CLUSTER_MENU = True)
+    ├── Replication
+    ├── Node 02 (Online Status)
+    └── Node 03 (Online Status)
+```
 
 ---
 
@@ -133,6 +137,24 @@ Ce projet intègre un assistant d'installation automatisé et interactif permett
 * 🖥️ **Gestion de Cluster :** Écrans dédiés optionnels pour surveiller les nœuds frères (ex: PVE-02, PVE-03).
 * 🔌 **Stabilité Matérielle :** Utilise l'identification unique des périphériques (`/dev/serial/by-id/*`) pour garantir une connexion stable, évitant les sauts de ports COM virtuels instables.
 * ⚙️ **Intégration Systemd :** S'exécute nativement en arrière-plan comme un service léger géré par `systemd`.
+
+---
+
+## 🗺️ Arborescence des Menus
+
+```text
+[Touche : Gauche / Droite] 🔄
+├── 📶 1. RESEAU (Hote / IP / Débit) 
+├── ⚙️ 2. CPU (Nom / Charge / Température)
+├── 🧠 3. RAM (Utilisé / Libre / Swap)
+├── 🖥️ 4. VM & LXC (VM / LXC en fonctionnement)
+├── 🧮 5. VOLUMETRIE (ZFS / Réseau / Local nom et usage en %)
+├── 🏥 6. SANTE SMART (Status SMART et température pour sda, nvme0, etc.)
+└── 🖥️ 7. CLUSTER (Uniquement si ENABLE_CLUSTER_MENU = True)
+    ├── Réplication
+    ├── Nœud 02 (Status en ligne)
+    └── Nœud 03 (Status en ligne)
+```
 
 ---
 
