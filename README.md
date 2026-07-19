@@ -30,6 +30,20 @@ This project features a fully automated, interactive installation wizard that co
 
 ---
 
+## 🗺️ Menu Structure
+
+```text
+[Key 1: Next] 🔄
+├── 💾 01. Node Status (CPU % / RAM % / Uptime)
+├── 🌡️ 02. Temperatures (CPU / Motherboard / NVMe)
+├── 🧮 03. Storage Pools (ZFS / LVM / Local usage %)
+├── 🏥 04. Drive Health (SMART status for sda, nvme0, etc.)
+└── 🖥️ 05. Cluster Node Status (Only if ENABLE_CLUSTER_MENU = True)
+    ├── Sibling Node 02 (Online Status / Load)
+    └── Sibling Node 03 (Online Status / Load)
+
+---
+
 ## 🚀 Quick Automated Installation
 
 To deploy the script on a Proxmox node, execute the following command in your terminal. 
