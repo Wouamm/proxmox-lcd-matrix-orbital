@@ -24,7 +24,7 @@ This project features a fully automated, interactive installation wizard that co
 
 * 📊 **Real-time Metrics:** Displays CPU usage, RAM utilization, system temperatures, and storage health (SMART).
 * 🌐 **Localization:** Full support for both English (`EN`) and French (`FR`) display layouts.
-* 🖥️ **Cluster Awareness:** Optional dedicated monitoring screens for sibling nodes (e.g., PVE-02, PVE-03).
+* 🖥️ **Cluster Awareness:** Optional dedicated monitoring screens for nodes (e.g., PVE-02, PVE-03).
 * 🔌 **Hardware Resilience:** Leverages unique device path identification (`/dev/serial/by-id/*`) to secure a stable connection, bypassing flaky standard virtual COM port allocations.
 * ⚙️ **Systemd Integration:** Runs natively as a lightweight, background daemon managed by `systemd`.
 
@@ -134,7 +134,7 @@ Ce projet intègre un assistant d'installation automatisé et interactif permett
 
 * 📊 **Métriques en temps réel :** Affiche la charge CPU, l'utilisation RAM, les températures du système et la santé des disques (SMART).
 * 🌐 **Traduction :** Support complet pour les configurations d'affichage en Anglais (`EN`) et en Français (`FR`).
-* 🖥️ **Gestion de Cluster :** Écrans dédiés optionnels pour surveiller les nœuds frères (ex: PVE-02, PVE-03).
+* 🖥️ **Gestion de Cluster :** Écrans dédiés optionnels pour surveiller les nœuds (ex: PVE-02, PVE-03).
 * 🔌 **Stabilité Matérielle :** Utilise l'identification unique des périphériques (`/dev/serial/by-id/*`) pour garantir une connexion stable, évitant les sauts de ports COM virtuels instables.
 * ⚙️ **Intégration Systemd :** S'exécute nativement en arrière-plan comme un service léger géré par `systemd`.
 
