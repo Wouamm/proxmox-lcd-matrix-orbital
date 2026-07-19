@@ -49,12 +49,14 @@ systemctl restart proxmox-lcd.service
 Should you need to remove the tracking deployment entirely from your host hypervisor without wiping your entire `scripts` directory:
 
 # Stop and remove the daemon
+
 systemctl stop proxmox-lcd.service
 systemctl disable proxmox-lcd.service
 rm /etc/systemd/system/proxmox-lcd.service
 systemctl daemon-reload
 
 # Remove only the project files, keeping your other scripts safe
+
 rm -f /root/scripts/proxmox-lcd-matrix-orbital.py
 
 ---
@@ -120,12 +122,14 @@ systemctl restart proxmox-lcd.service
 Si vous souhaitez retirer complètement le projet de votre hyperviseur sans pour autant effacer tout votre dossier `scripts` :
 
 # Arrêter et supprimer le service
+
 systemctl stop proxmox-lcd.service
 systemctl disable proxmox-lcd.service
 rm /etc/systemd/system/proxmox-lcd.service
 systemctl daemon-reload
 
 # Supprimer uniquement le fichier du projet, sans toucher à vos autres scripts
+
 rm -f /root/scripts/proxmox-lcd-matrix-orbital.py
 
 ---
