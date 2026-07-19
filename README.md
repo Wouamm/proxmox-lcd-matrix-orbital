@@ -10,11 +10,13 @@ This project features a fully automated, interactive installation wizard that co
 
 ![Button Layout](Images/front_panel.webp)
 
-| Button / Touche | Action (EN) | Action (FR) |
-| :--- | :--- | :--- |
-| **Key 1 / Up** | Next menu screen | Écran de menu suivant |
-| **Key 2 / Enter** | Toggle backlight sleep | Activer/Désactiver la veille |
-| **Key 3 / Down** | Manual metric refresh | Forcer le rafraîchissement |
+| Button | Action |
+| :--- | :--- |
+| **Left / Right** | Next menu screen |
+| **Up / Down** | Setting backlight |
+| **Enter** | Enter in the menu |
+| **F1** | Main menu |
+| **F2** | Back to clock |
 
 ---
 
