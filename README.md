@@ -8,7 +8,7 @@ This project features a fully automated, interactive installation wizard that co
 
 ## 🕹️ Screen Button Controls / Fonctions des touches
 
-![Button Layout](/Front panel.webp)
+![Button Layout](Images/Front panel.webp)
 
 | Button / Touche | Action (EN) | Action (FR) |
 | :--- | :--- | :--- |
