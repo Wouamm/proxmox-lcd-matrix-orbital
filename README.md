@@ -55,7 +55,7 @@ To deploy the script on a Proxmox node, execute the following command in your te
 > ⚠️ **Important:** Do NOT pipe directly to bash (`curl | bash`), as the installer requires a TTY terminal allocation to process your interactive inputs (language preference, hardware ports, cluster IPs).
 
 ```bash
-bash <(curl -sSL https://raw.githubusercontent.com/Wouamm/proxmox-lcd-matrix-orbital/main/install.sh)
+sudo bash <(curl -sSL https://raw.githubusercontent.com/Wouamm/proxmox-lcd-matrix-orbital/main/install.sh)
 ```
 
 ### 🎯 What the Installer Does:
@@ -165,7 +165,7 @@ Pour déployer le script sur un nœud Proxmox, exécutez la commande suivante da
 > ⚠️ **Important :** Ne redirigez pas le flux directement vers bash (`curl | bash`), car l'installateur requiert l'attribution d'un terminal (TTY) pour capturer vos choix interactifs (langue, ports matériels, IPs du cluster).
 
 ```bash
-bash <(curl -sSL https://raw.githubusercontent.com/Wouamm/proxmox-lcd-matrix-orbital/main/install.sh)
+sudo bash <(curl -sSL https://raw.githubusercontent.com/Wouamm/proxmox-lcd-matrix-orbital/main/install.sh)
 ```
 
 ### 🎯 Ce que fait l'installateur :
