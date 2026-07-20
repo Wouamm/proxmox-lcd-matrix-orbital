@@ -71,12 +71,12 @@ sudo bash <(curl -sSL https://raw.githubusercontent.com/Wouamm/proxmox-lcd-matri
 If you ever need to manually tweak variables (such as updating cluster node target IPs, modifying backlight timeouts, or adding disk prefix filters) after the deployment, simply edit the main module:
 
 ```bash
-nano /root/scripts/proxmox-lcd-matrix-orbital.py
+sudo nano /root/scripts/proxmox-lcd-matrix-orbital.py
 ```
 
 Then restart the service to apply the updates:
 ```bash
-systemctl restart proxmox-lcd.service
+sudo systemctl restart proxmox-lcd.service
 ```
 
 ---
@@ -87,13 +87,13 @@ Should you need to remove the tracking deployment entirely from your host hyperv
 
 ```bash
 # Stop and remove the daemon
-systemctl stop proxmox-lcd.service
-systemctl disable proxmox-lcd.service
-rm /etc/systemd/system/proxmox-lcd.service
-systemctl daemon-reload
+sudo systemctl stop proxmox-lcd.service
+sudo systemctl disable proxmox-lcd.service
+sudo rm /etc/systemd/system/proxmox-lcd.service
+sudo systemctl daemon-reload
 
 # Remove only the project files, keeping your other scripts safe
-rm -f /root/scripts/proxmox-lcd-matrix-orbital.py
+sudo rm -f /root/scripts/proxmox-lcd-matrix-orbital.py
 ```
 
 ---
@@ -181,12 +181,12 @@ sudo bash <(curl -sSL https://raw.githubusercontent.com/Wouamm/proxmox-lcd-matri
 Si vous devez modifier manuellement des variables après le déploiement (comme mettre à jour les IPs du cluster, ajuster la mise en veille du rétroéclairage ou filtrer des préfixes de disques), éditez simplement le script :
 
 ```bash
-nano /root/scripts/proxmox-lcd-matrix-orbital.py
+sudo nano /root/scripts/proxmox-lcd-matrix-orbital.py
 ```
 
 Puis redémarrez le service pour appliquer les modifications :
 ```bash
-systemctl restart proxmox-lcd.service
+sudo systemctl restart proxmox-lcd.service
 ```
 
 ---
@@ -197,13 +197,13 @@ Si vous souhaitez retirer complètement le projet de votre hyperviseur sans pour
 
 ```bash
 # Arrêter et supprimer le service
-systemctl stop proxmox-lcd.service
-systemctl disable proxmox-lcd.service
-rm /etc/systemd/system/proxmox-lcd.service
-systemctl daemon-reload
+sudo systemctl stop proxmox-lcd.service
+sudo systemctl disable proxmox-lcd.service
+sudo rm /etc/systemd/system/proxmox-lcd.service
+sudo systemctl daemon-reload
 
 # Supprimer uniquement le fichier du projet, sans toucher à vos autres scripts
-rm -f /root/scripts/proxmox-lcd-matrix-orbital.py
+sudo rm -f /root/scripts/proxmox-lcd-matrix-orbital.py
 ```
 
 ---
