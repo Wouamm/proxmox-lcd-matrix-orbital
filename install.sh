@@ -42,6 +42,34 @@ done
 echo "✅ Language set to: $SELECTED_LANG"
 echo ""
 
+# 🌡️ 1b. TEMPERATURE UNIT SELECTION
+echo "🌡️ Selecting temperature unit..."
+PS3="👉 Please select your temperature unit: "
+REPLY=""
+select TEMP_CHOICE in "Celsius (°C)" "Fahrenheit (°F)"; do
+    case $REPLY in
+        1) SELECTED_TEMP="C"; break ;;
+        2) SELECTED_TEMP="F"; break ;;
+        *) echo "❌ Invalid selection." ;;
+    esac
+done
+echo "✅ Temperature unit set to: $SELECTED_TEMP"
+echo ""
+
+# 📅 1c. DATE FORMAT SELECTION
+echo "📅 Selecting date format..."
+PS3="👉 Please select the date format for the standby clock: "
+REPLY=""
+select DATE_CHOICE in "European Long (DD/MM/YYYY)" "American Long (MM/DD/YYYY)"; do
+    case $REPLY in
+        1) SELECTED_DATE="%d/%m/%Y"; break ;;
+        2) SELECTED_DATE="%m/%d/%Y"; break ;;
+        *) echo "❌ Invalid selection." ;;
+    esac
+done
+echo "✅ Date format token recorded."
+echo ""
+
 # 🔌 2. SCREEN DETECT & SELECTION
 echo "🔍 Detecting Matrix Orbital screens..."
 while true; do
@@ -118,6 +146,12 @@ echo "⚙️ Applying configuration settings to $SCRIPT_NAME..."
 
 # Inject Language
 sed -i "s|^LANGUAGE\s*=.*|LANGUAGE = \"$SELECTED_LANG\"|" "$SCRIPT_NAME"
+
+# Inject Temperature Unit
+sed -i "s|^TEMPERATURE_UNIT\s*=.*|TEMPERATURE_UNIT = \"$SELECTED_TEMP\"|" "$SCRIPT_NAME"
+
+# Inject Date Format
+sed -i "s|^DATE_FORMAT\s*=.*|DATE_FORMAT = \"$SELECTED_DATE\"|" "$SCRIPT_NAME"
 
 # Inject Serial Port
 sed -i "s|^SERIAL_PORT\s*=.*|SERIAL_PORT       = '$SELECTED_PORT'|" "$SCRIPT_NAME"
