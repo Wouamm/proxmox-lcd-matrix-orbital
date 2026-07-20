@@ -16,7 +16,7 @@ This project features a fully automated, interactive installation wizard that co
 | **Up / Down** | Setting backlight |
 | **Enter** | Enter in the menu |
 | **F1** | Main menu |
-| **F2** | Back to clock |
+| **F2** | Back to screensaver |
 
 ---
 
@@ -126,7 +126,7 @@ Ce projet intègre un assistant d'installation automatisé et interactif permett
 | **Haut / Bas** | Réglage du rétroéclairage |
 | **Enter** | Entrer dans le menu |
 | **F1** | Menu principal |
-| **F2** | Retour sur l'horloge |
+| **F2** | Retour sur l'écran de veille |
 
 ---
 
