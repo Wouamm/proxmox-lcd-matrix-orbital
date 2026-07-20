@@ -15,6 +15,15 @@ from datetime import datetime
 # 🌐 1. LANGUAGE CONFIGURATION ("EN" or "FR")
 LANGUAGE = "EN"
 
+# 🌡️ 1b. TEMPERATURE UNIT CONFIGURATION ("C" for Celsius, "F" for Fahrenheit)
+TEMPERATURE_UNIT = "C"
+
+# 📅 1c. DATE FORMAT CONFIGURATION
+# Choose between standard formats:
+# "%d/%m/%Y" -> European Long (e.g., 20/07/2026)
+# "%m/%d/%Y" -> American Long (e.g., 07/20/2026)
+DATE_FORMAT = "%d/%m/%Y"
+
 # 🔌 2. HARDWARE CONFIGURATION (LCD SCREEN)
 # Run ls /dev/serial/by-id/ in your Proxmox terminal to find your unique screen ID.
 # Example: '/dev/serial/by-id/usb-MO_MX2_MX3_MX6_xxxxx-if00-port0'
@@ -111,6 +120,17 @@ cache = {
     "cpu_percent": 0.0
 }
 
+def c_to_f(celsius_val):
+    try:
+        return int((float(celsius_val) * 9/5) + 32)
+    except:
+        return celsius_val
+
+def format_temp(celsius_numeric_val):
+    if TEMPERATURE_UNIT == "F":
+        return f"{c_to_f(celsius_numeric_val)} F"
+    return f"{int(celsius_numeric_val)} C"
+
 def get_disks_smart():
     disks_status = []
     try:
@@ -164,7 +184,7 @@ def get_disks_smart():
                                 if pct: wearout = f"{100 - int(pct)}%"
                             elif "Temperature:" in d_line:
                                 t_parts = d_line.split()
-                                if len(t_parts) >= 2: temp = f"{t_parts[1]} C"
+                                if len(t_parts) >= 2: temp = format_temp(t_parts[1])
                     else:
                         for d_line in details_out.split('\n'):
                             if "Wearout_Indicator" in d_line or "Wear_Leveling_Count" in d_line:
@@ -175,7 +195,7 @@ def get_disks_smart():
                                 if len(cols) >= 10:
                                     val = cols[9].strip()
                                     if val.isdigit() and 0 < int(val) < 100:
-                                        temp = f"{val} C"
+                                        temp = format_temp(val)
                 except:
                     pass
 
@@ -193,7 +213,7 @@ def get_disks_smart():
                                         with open(temp_path, "r") as f:
                                             t_val = int(f.read().strip()) // 1000
                                             if 0 < t_val < 100:
-                                                temp = f"{t_val} C"
+                                                temp = format_temp(t_val)
                                                 break
                     except:
                         pass
@@ -309,18 +329,32 @@ def get_cpu_model():
 def get_cpu_temp():
     try:
         temps = psutil.sensors_temperatures()
+        raw_c = None
         if 'coretemp' in temps and temps['coretemp']:
             for entry in temps['coretemp']:
-                if 'package' in entry.label.lower(): return f"{int(entry.current)} C"
-            return f"{int(temps['coretemp'][0].current)} C"
-        for amd_sensor in ['k10temp', 'zenpower']:
-            if amd_sensor in temps and temps[amd_sensor]:
-                for entry in temps[amd_sensor]:
-                    if 'tdie' in entry.label.lower() or 'tctl' in entry.label.lower(): return f"{int(entry.current)} C"
-                return f"{int(temps[amd_sensor][0].current)} C"
-        if temps:
+                if 'package' in entry.label.lower(): 
+                    raw_c = entry.current
+                    break
+            if raw_c is None:
+                raw_c = temps['coretemp'][0].current
+        if raw_c is None:
+            for amd_sensor in ['k10temp', 'zenpower']:
+                if amd_sensor in temps and temps[amd_sensor]:
+                    for entry in temps[amd_sensor]:
+                        if 'tdie' in entry.label.lower() or 'tctl' in entry.label.lower(): 
+                            raw_c = entry.current
+                            break
+                    if raw_c is None:
+                        raw_c = temps[amd_sensor][0].current
+                    break
+        if raw_c is None and temps:
             for sensor_name, entries in temps.items():
-                if entries: return f"{int(entries[0].current)} C"
+                if entries: 
+                    raw_c = entries[0].current
+                    break
+                    
+        if raw_c is not None:
+            return format_temp(raw_c)
         return "N/A"
     except: return "N/A"
 
@@ -357,7 +391,7 @@ class MenuManager:
         if self.current_menu == "MAIN":
             return self.format_header(TXT["main_menu"]), self.main_menus[self.main_index]
         elif self.current_menu == "NETWORK":
-            sub_items = [f"{TXT['host']}: {get_hostname()}"]
+            sub_items = []
             for iface in cache["net_interfaces"]:
                 sub_items.append(iface['ip_line'])
                 sub_items.append(iface['speed_line'])
@@ -409,7 +443,7 @@ class MenuManager:
         else:
             if self.current_menu == "STORAGE": max_items = 1 + len(cache["storage_vols"])
             elif self.current_menu == "SMART_HEALTH": max_items = 1 + len(cache["storage_smart"])
-            elif self.current_menu == "NETWORK": max_items = 2 + (len(cache["net_interfaces"]) * 2)
+            elif self.current_menu == "NETWORK": max_items = 1 + (len(cache["net_interfaces"]) * 2)
             elif self.current_menu == "VM_LXC": max_items = 3
             else: max_items = 4 
             
@@ -550,8 +584,13 @@ try:
         if now - last_display_time >= 0.3:
             if show_clock:
                 dt_now = datetime.now()
-                line1_display = dt_now.strftime("%H:%M:%S").center(20)
-                line2_display = dt_now.strftime("%d/%m/%Y").center(20)
+                line1_display = get_hostname().center(20)
+                
+                # Blinking colon animation calculated using local time seconds
+                separator = ":" if (dt_now.second % 2 == 0) else " "
+                time_str = f"{dt_now.strftime('%H')}{separator}{dt_now.strftime('%M')}"
+                
+                line2_display = f"{time_str}  {dt_now.strftime(DATE_FORMAT)}".center(20)
             else:
                 line1, line2 = menu.get_display_strings()
                 line1_display = line1.ljust(20)[:20]
