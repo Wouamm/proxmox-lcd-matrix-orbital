@@ -33,8 +33,9 @@ This project features a fully automated, interactive installation wizard that co
 ## 🗺️ Menu Structure
 
 ```text
-[Button : Left / Right] 🔄
-├── 📶 1. NETWORK (Host / IP / Flow rate) 
+[Button : Left / Right / Enter] 🔄
+MAIN MENU (Host / Time / Date)
+├── 📶 1. NETWORK (IP / Flow rate) 
 ├── ⚙️ 2. CPU (Name / Load / Temp)
 ├── 🧠 3. RAM (Used / Free / Swap)
 ├── 🖥️ 4. VM & LXC (VM / LXC run)
@@ -143,7 +144,8 @@ Ce projet intègre un assistant d'installation automatisé et interactif permett
 ## 🗺️ Arborescence des Menus
 
 ```text
-[Touche : Gauche / Droite] 🔄
+[Touche : Gauche / Droite / Entrer] 🔄
+MENU PRINCIPAL (Hote / Heure / Date)
 ├── 📶 1. RESEAU (Hote / IP / Débit) 
 ├── ⚙️ 2. CPU (Nom / Charge / Température)
 ├── 🧠 3. RAM (Utilisé / Libre / Swap)
